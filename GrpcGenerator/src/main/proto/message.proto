@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package ru.shulgindaniil.message;
+
+service MessageService {
+  rpc GetMessageUnary (MessageRequest) returns(MessageResponse);
+  rpc GetMessageClientStream (stream MessageRequest) returns(MessageResponse);
+  rpc GetMessageServerStream (MessageRequest) returns(stream MessageResponse);
+}
+
+message MessageRequest {
+  int32 id = 1;
+}
+
+message MessageResponse{
+  int32 id = 1;
+  string title = 2;
+}
